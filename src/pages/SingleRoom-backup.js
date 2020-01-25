@@ -6,12 +6,8 @@ import { Link } from 'react-router-dom'
 import { RoomContext } from '../context';
 import StyledHero from '../components/StyledHero';
 import Footer from '../components/Footer';
-
-const encode = (data) => {
-    return Object.keys(data)
-        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-        .join("&");
-}
+//import ProductEnquiry from '../components/ProductEnquiry';
+import ContactForm from '../ContactForm';
 
 export default class SingleRoom extends Component {
     constructor(props) {
@@ -20,9 +16,7 @@ export default class SingleRoom extends Component {
 
         this.state = {
             slug: this.props.match.params.slug,
-            defaultBcg,
-
-            username: "", email: "", message: "",
+            defaultBcg
 
         }
     }
@@ -30,27 +24,7 @@ export default class SingleRoom extends Component {
 
     //componentDidMount(){}
 
-    //Netlify Form Methods*
-    /* Here’s the juicy bit for posting the form submission */
-
-    handleSubmit = e => {
-        fetch("/", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: encode({ "form-name": "contact", ...this.state })
-        })
-            .then(() => alert("Success!"))
-            .catch(error => alert(error));
-
-        e.preventDefault();
-    };
-
-    handleChange = e => this.setState({ [e.target.name]: e.target.value });
-
-    //End of Netlify Form Methods
-
     render() {
-        const { username, email, message } = this.state;
         const { getRoom } = this.context;
         const room = getRoom(this.state.slug);
         if (!room) {
@@ -110,24 +84,24 @@ export default class SingleRoom extends Component {
                         {/* Netlify Form start */}
 
                         <div>
-                            <form onSubmit={this.handleSubmit}>
+                            <form action="POST" data-netlify="true">
                                 <p>
-                                    <label>
-                                        Your Name: <input type="text" name="username" value={username} onChange={this.handleChange} placeholder="Your Name" />
-                                    </label>
+                                    <label>Your Name: <input type="text" name="name" /></label>
                                 </p>
                                 <p>
-                                    <label>
-                                        Your Email: <input type="email" name="email" value={email} onChange={this.handleChange} placeholder="Your Email" />
-                                    </label>
+                                    <label>Your Email: <input type="email" name="email" /></label>
+                                </p>
+                                <p>
+                                    <label>Your Role: <select name="role[]" multiple>
+                                        <option value="leader">Leader</option>
+                                        <option value="follower">Follower</option>
+                                    </select></label>
+                                </p>
+                                <p>
+                                    <label>Message: <textarea name="message"></textarea></label>
                                 </p>
                                 <p>
                                     <label>Product Name: <input type="text" name="productName" value={name} /></label>
-                                </p>
-                                <p>
-                                    <label>
-                                        Message: <textarea name="message" value={message} onChange={this.handleChange} placeholder="Your Message" />
-                                    </label>
                                 </p>
                                 <p>
                                     <div data-netlify-recaptcha="true"></div>
@@ -136,9 +110,6 @@ export default class SingleRoom extends Component {
                                     <button type="submit">Send</button>
                                 </p>
                             </form>
-
-
-
                         </div>
                         {/* End of Netlify Form start */}
 
