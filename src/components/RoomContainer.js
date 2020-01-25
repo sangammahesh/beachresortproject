@@ -11,7 +11,6 @@ if(loading){
 }
 return (
     <div>
-        Hello from RoomsContainer
         <RoomsFilter rooms={rooms}/>
         <RoomsList rooms={sortedRooms}/>
     </div>

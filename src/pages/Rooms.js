@@ -3,6 +3,7 @@ import Hero from '../components/Hero';
 import Banner from '../components/Banner';
 import {Link} from 'react-router-dom';
 import RoomContainer from '../components/RoomContainer';
+import Footer from '../components/Footer';
 
 function Rooms() {
     return (
@@ -17,6 +18,9 @@ function Rooms() {
             </Hero>
         </div>
         <RoomContainer/>
+        <section>
+            <Footer/>
+        </section>
         </>
     )
 }

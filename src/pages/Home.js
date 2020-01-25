@@ -4,6 +4,7 @@ import Banner from '../components/Banner';
 import {Link} from 'react-router-dom';
 import Services from '../components/Services';
 import FeaturedRooms from '../components/FeaturedRooms';
+import Footer from '../components/Footer';
 //import Button from '../components/StyledHero';
 
 function Home() {
@@ -23,6 +24,9 @@ function Home() {
             </section>
             <section>
                 <FeaturedRooms/>
+            </section>
+            <section>
+                <Footer/>
             </section>
             {/* <Button >Hello</Button> */}
         </div>

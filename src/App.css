@@ -10,6 +10,7 @@
   --mainBlack: #222;
   --mainGrey: #ececec;
   --darkGrey: #cfcfcf;
+  --darkBlue: #04577b;
   --mainTransition: all 0.3s linear;
   --mainSpacing: 3px;
   --lightShadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
@@ -166,7 +167,7 @@ h6 {
 }
 .roomsHero {
   background-image: url("./images/room-2.jpeg");
-  min-height: 60vh;
+  min-height: 30vh;
 }
 /* End of Hero */
 /* Banner */
@@ -212,7 +213,7 @@ h6 {
 /* Title */
 .section-title {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 .section-title h4 {
   font-size: 2rem;
@@ -228,9 +229,54 @@ h6 {
 }
 /* end of Title */
 
+/* Footer */
+.footer {
+  padding: 1rem 0;
+}
+.footer {
+  background: var(--darkBlue);
+  text-align: center;
+}
+.footer-center {
+  width: 90vw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+  grid-row-gap: 2rem;
+  grid-column-gap: 50px;
+}
+.footer span {
+  display: inline-block;
+  color: var(--primaryColor);
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+.footer h6 {
+  letter-spacing: var(--mainSpacing);
+  text-transform: capitalize;
+  color:var(--mainWhite);
+}
+.footer p {
+  width: 80%;
+  margin: 0 auto;
+}
+@media screen and (min-width: 992px) {
+  .footer-center {
+    width: 95vw;
+    max-width: 1170px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .footer p {
+    width: 100%;
+  }
+}
+/* End of Footer */
+
 /* services */
 .services {
-  padding: 5rem 0;
+  padding: 3rem 0;
 }
 .services {
   background: var(--darkGrey);
@@ -274,7 +320,7 @@ h6 {
 /* featured rooms */
 
 .featured-rooms {
-  padding: 5rem 0;
+  padding: 3rem 0;
 }
 .featured-rooms-center {
   width: 80vw;
@@ -437,7 +483,7 @@ h6 {
 /* end of single room*/
 /* roomlist */
 .roomslist {
-  padding: 5rem 0;
+  padding: 3rem 0;
 }
 .roomslist-center {
   width: 80vw;
@@ -462,7 +508,7 @@ h6 {
 /* end of roomlist */
 /*  rooms fitler*/
 .filter-container {
-  padding: 5rem 0;
+  padding: 0.1rem 0;
 }
 .filter-form {
   width: 60vw;
@@ -512,3 +558,43 @@ h6 {
   }
 }
 /* end of rooms fitler*/
+
+/* Additional CSS for Contact Form*/
+* {
+  box-sizing: border-box;
+}
+.App {
+   max-width: 420px;
+   margin: 0 auto;
+}
+p {
+   text-align: center;
+   font-weight: 500;
+}
+input[type=text],input[type=email], select, textarea {
+   width: 100%;
+   padding: 12px;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   box-sizing: border-box;
+   margin-top: 6px;
+   margin-bottom: 16px;
+   resize: vertical;
+}
+input[type=submit] {
+   background-color: #4CAF50;
+   color: white;
+   padding: 12px 20px;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+}
+input[type=submit]:hover {
+   background-color: #45a049;
+}
+.container {
+   border-radius: 5px;
+   background-color: #f2f2f2;
+   padding: 20px;
+}
+/* End Additional CSS for Contact Form*/

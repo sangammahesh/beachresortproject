@@ -5,7 +5,8 @@ import Banner from '../components/Banner'
 import {Link} from 'react-router-dom'
 import {RoomContext} from '../context';
 import StyledHero from '../components/StyledHero';
-
+import Footer from '../components/Footer';
+import ProductEnquiry from '../components/ProductEnquiry';
 
 export default class SingleRoom extends Component {
     constructor(props) {
@@ -49,7 +50,7 @@ export default class SingleRoom extends Component {
         <section className="single-room">
             <div className="single-room-images">
             {defaultImg.map((item, index)=>(
-                <img key={index} src={item} alt={name}/>
+                <a href={item} data-lightbox="Hotels" data-title={name}><img key={index} src={item} alt={name} /></a>
             ))}
             </div>
 
@@ -63,7 +64,7 @@ export default class SingleRoom extends Component {
                     <h6>Price: ${price}</h6>
                     <h6>Size: ${size} SQFT</h6>
                     <h6>max capacity: {
-                        capacity>1 ?`${capacity} people`:`${capacity} person`}    }
+                        capacity>1 ?`${capacity} people`:`${capacity} person`}
                     </h6>
                     <h6>{pets?"pets allowed":"no pets allowed"}</h6>
     <h6>{breakfast && "free breakfast included"}</h6>
@@ -78,6 +79,12 @@ export default class SingleRoom extends Component {
                 return <li key={index}>- {item}</li>
                 })}
             </ul>
+        </section>
+        <section>
+            <ProductEnquiry/>
+        </section>
+        <section>
+            <Footer/>
         </section>
         </>
         );
