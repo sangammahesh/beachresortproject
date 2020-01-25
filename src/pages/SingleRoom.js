@@ -110,7 +110,7 @@ export default class SingleRoom extends Component {
                         {/* Netlify Form start */}
 
                         <div>
-                            <form onSubmit={this.handleSubmit}>
+                            <form onSubmit={this.handleSubmit} name="contact" method="POST" data-netlify="true">
                                 <p>
                                     <label>
                                         Your Name: <input type="text" name="username" value={username} onChange={this.handleChange} placeholder="Your Name" />
