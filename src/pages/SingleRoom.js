@@ -6,7 +6,8 @@ import {Link} from 'react-router-dom'
 import {RoomContext} from '../context';
 import StyledHero from '../components/StyledHero';
 import Footer from '../components/Footer';
-import ProductEnquiry from '../components/ProductEnquiry';
+//import ProductEnquiry from '../components/ProductEnquiry';
+import ContactForm from '../ContactForm';
 
 export default class SingleRoom extends Component {
     constructor(props) {
@@ -48,18 +49,12 @@ export default class SingleRoom extends Component {
         </StyledHero>
 
         <section className="single-room">
-            <div className="single-room-images">
-            {defaultImg.map((item, index)=>(
-                <a href={item} data-lightbox="Hotels" data-title={name}><img key={index} src={item} alt={name} /></a>
-            ))}
-            </div>
-
             <div className="single-room-info">
                 <article className="desc">
                     <h3>details</h3>
                     <p>{description}</p>
-                </article>
-                <article className="info">
+                    <br></br>
+                {/* <article className="info"> */}
                     <h3>info</h3>
                     <h6>Price: ${price}</h6>
                     <h6>Size: ${size} SQFT</h6>
@@ -69,7 +64,27 @@ export default class SingleRoom extends Component {
                     <h6>{pets?"pets allowed":"no pets allowed"}</h6>
     <h6>{breakfast && "free breakfast included"}</h6>
 
+                {/* </article> */}
                 </article>
+
+                {/* <article className="info">
+                                <h3>info</h3>
+                    <h6>Price: ${price}</h6>
+                    <h6>Size: ${size} SQFT</h6>
+                    <h6>max capacity: {
+                        capacity>1 ?`${capacity} people`:`${capacity} person`}
+                    </h6>
+                    <h6>{pets?"pets allowed":"no pets allowed"}</h6>
+    <h6>{breakfast && "free breakfast included"}</h6>
+
+                </article> */}
+                
+                <div><ContactForm /></div>
+            </div>
+            <div className="single-room-images">
+            {defaultImg.map((item, index)=>(
+                <a href={item} data-lightbox="Hotels" data-title={name}><img key={index} src={item} alt={name} /></a>
+            ))}
             </div>
         </section>
         <section className="room-extras">
@@ -79,9 +94,6 @@ export default class SingleRoom extends Component {
                 return <li key={index}>- {item}</li>
                 })}
             </ul>
-        </section>
-        <section>
-            <ProductEnquiry/>
         </section>
         <section>
             <Footer/>
