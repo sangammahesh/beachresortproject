@@ -26,16 +26,17 @@ export default class SingleRoom extends Component {
 
         }
     }
+    
     static contextType = RoomContext;
 
-    //componentDidMount(){}
 
-    //Netlify Form Methods*
-    /* Here’s the juicy bit for posting the form submission */
+    /* Netlify Form Methods* - Here’s the juicy bit for posting the form submission */
 
     handleSubmit = e => {
         fetch("/", {
             method: "POST",
+            name:"contact",
+            datanetlify: "true",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: encode({ "form-name": "contact", ...this.state })
         })
@@ -47,7 +48,7 @@ export default class SingleRoom extends Component {
 
     handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
-    //End of Netlify Form Methods
+    /*End of Netlify Form Methods*/
 
     render() {
         const { username, email, message } = this.state;
@@ -110,7 +111,7 @@ export default class SingleRoom extends Component {
                         {/* Netlify Form start */}
 
                         <div>
-                            <form onSubmit={this.handleSubmit} name="contact" method="POST" data-netlify="true">
+                            <form data-netlify="true" onSubmit={this.handleSubmit} >
                                 <p>
                                     <label>
                                         Your Name: <input type="text" name="username" value={username} onChange={this.handleChange} placeholder="Your Name" />
