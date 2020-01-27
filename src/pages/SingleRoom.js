@@ -22,7 +22,7 @@ export default class SingleRoom extends Component {
             slug: this.props.match.params.slug,
             defaultBcg,
 
-            username: "", email: "", message: "",
+            username: "", email: "", mobileno: "", productname: '', message: "",
 
         }
     }
@@ -51,7 +51,7 @@ export default class SingleRoom extends Component {
     /*End of Netlify Form Methods*/
 
     render() {
-        const { username, email, message } = this.state;
+        const { username, email, mobileno, productname, message } = this.state;
         const { getRoom } = this.context;
         const room = getRoom(this.state.slug);
         if (!room) {
@@ -123,7 +123,10 @@ export default class SingleRoom extends Component {
                                     </label>
                                 </p>
                                 <p>
-                                    <label>Product Name: <input type="text" name="productName" value={name} /></label>
+                                    <label>Mobile No.: <input type="number" name="mobileno" value={mobileno} onChange={this.handleChange}/></label>
+                                </p>
+                                <p>
+                                    <label>Product Name: <input type="text" name="productname" value={name} onChange={this.handleChange}/></label>
                                 </p>
                                 <p>
                                     <label>
