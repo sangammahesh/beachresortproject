@@ -82,6 +82,7 @@ export default class SingleRoom extends Component {
                             <p>{description}</p>
                             <br></br>
                             {/* <article className="info"> */}
+                            <h3>---------------------------</h3>
                             <h3>info</h3>
                             <h6>Price: ${price}</h6>
                             <h6>Size: ${size} SQFT</h6>
@@ -123,10 +124,10 @@ export default class SingleRoom extends Component {
                                     </label>
                                 </p>
                                 <p>
-                                    <label>Mobile No.: <input type="mobile" name="mobileno" value={mobileno} onChange={this.handleChange}/></label>
+                                    <label>Mobile No.: <input type="number" name="mobileno" value={mobileno} onChange={this.handleChange}/></label>
                                 </p>
                                 <p>
-                                    <label>Product Name: <input type="text" name="productname" value={productname, name} onChange={this.handleChange}/></label>
+                                    <label>Product Name: <input type="text" name="productname" value={productname} onChange={this.handleChange}  placeholder={name} /></label>
                                 </p>
                                 <p>
                                     <label>
