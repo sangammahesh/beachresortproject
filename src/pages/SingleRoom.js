@@ -127,7 +127,7 @@ export default class SingleRoom extends Component {
                                     <label>Mobile No.: <input type="number" name="mobileno" value={mobileno} onChange={this.handleChange}/></label>
                                 </p>
                                 <p>
-                                    <label>Product Name: <input type="text" name="productname" defaultValue={productname || ''} value={name} onChange={this.handleChange} /></label>
+                                    <label>Product Name: <input type="text" name="productname"  defaultValue={productname || name || ''}  onChange={this.handleChange} /></label>
                                 </p>
                                 <p>
                                     <label>
