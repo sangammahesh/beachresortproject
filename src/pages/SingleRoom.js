@@ -123,11 +123,14 @@ export default class SingleRoom extends Component {
                                         Your Email: <input type="email" name="email" value={email} onChange={this.handleChange} placeholder="Your Email" />
                                     </label>
                                 </p>
+                                
                                 <p>
                                     <label>Mobile No.: <input type="number" name="mobileno" value={mobileno} onChange={this.handleChange}/></label>
                                 </p>
+                                <br />
                                 <p>
-                                    <label>Product Name: <input type="text" name="productname"  key={`productname:${productname || name}`} defaultValue={productname || name || ''}   onChange={this.handleChange} /></label>
+                                    <label>Product Name: <span className="highlightxt">(after product name - add "rooms" in ending to validate this field)</span> 
+                                    <input type="text" name="productname" defaultValue={productname || name}  onChange={this.handleChange}/></label>  {/* key={`productname:${productname || ''}`} defaultValue={productname || ''} */}
                                 </p>
                                 <p>
                                     <label>

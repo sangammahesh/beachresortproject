@@ -54,6 +54,8 @@ h6 {
   margin-bottom: 1.5em;
 }
 
+.highlightxt{font-size: 10px; color:red;}
+
 .btn-primary {
   display: inline-block;
   text-decoration: none;
